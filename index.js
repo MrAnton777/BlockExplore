@@ -58,7 +58,7 @@ app.get('/:hash',async (req,res)=>{
         blockNumberOrHash: hash,})
 
     res.render('view',{block:block.toJSON()})
-    //res.send(block.toJSON())
+    //res.send(block.toJSON().transactions[0])
     }catch(e){console.log(e)}
 
 })

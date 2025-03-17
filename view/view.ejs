@@ -21,7 +21,13 @@
         <h2>Block timestamp: <%= block.timestamp %></h2>
         <h2>Block transactions count: <%= block.transaction_count %></h2>
 
+
     </div>
+    <h2>Transactions</h2>
+    <% block.transactions.map((el,idx)=>{ %>
+        <h2><%= el.hash %></h2>
+
+    <%})%>
     </div>
 
 
