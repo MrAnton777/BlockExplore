@@ -23,10 +23,16 @@
 
 
     </div>
-    <h2>Transactions</h2>
-    <% block.transactions.map((el,idx)=>{ %>
-        <h2><%= el.hash %></h2>
 
+    <div class="transactions-section">
+    <h1>Transactions</h1>
+    <% block.transactions.map((el,idx)=>{%>
+        <div class = 'el'>
+            <h3> Хеш: <h6><%= el.hash %></h6></h3>
+            <h3> Отправитель: <%= el.from_address %></h3>
+            <h3> Получатель: <%= el.to_address %></h3>
+            <h3> Сумма: <%= (el.value) * (10**-18) %></h3>
+        </div>
     <%})%>
     </div>
 

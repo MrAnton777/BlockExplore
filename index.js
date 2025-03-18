@@ -34,10 +34,6 @@ app.get('/index',async(req,res)=>{
 app.post('/index',async(req,res)=>{
     let hash = req.body.input
     if(!hash){return res.send('Block not found')}
-    //console.log(await Moralis.EvmApi.block.getBlock({
-    //    chain: "0x1",
-    //    blockNumberOrHash: '22067140',
-    //}))
     try{
         let block = await Moralis.EvmApi.block.getBlock({chain: "0x1",
             blockNumberOrHash: hash,})
@@ -50,12 +46,13 @@ app.post('/index',async(req,res)=>{
 
 })
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.get('/:hash',async (req,res)=>{
     let {hash} = req.params
     try{
     let block = await Moralis.EvmApi.block.getBlock({chain: "0x1",
-        blockNumberOrHash: hash,})
+        blockNumberOrHash: String(hash),})
 
     res.render('view',{block:block.toJSON()})
     //res.send(block.toJSON().transactions[0])
