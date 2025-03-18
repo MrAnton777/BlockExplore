@@ -38,7 +38,7 @@ app.post('/index',async(req,res)=>{
         let block = await Moralis.EvmApi.block.getBlock({chain: "0x1",
             blockNumberOrHash: hash,})
 
-        res.redirect(`/${hash}`)
+        res.redirect(`/hash/${hash}`)
     }catch(e){
         console.log(e)
     }
@@ -48,7 +48,8 @@ app.post('/index',async(req,res)=>{
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-app.get('/:hash',async (req,res)=>{
+
+app.get('/hash/:hash',async (req,res)=>{
     let {hash} = req.params
     try{
     let block = await Moralis.EvmApi.block.getBlock({chain: "0x1",
@@ -58,6 +59,17 @@ app.get('/:hash',async (req,res)=>{
     //res.send(block.toJSON().transactions[0])
     }catch(e){console.log(e)}
 
+})
+
+app.get('/last',async (req,res)=>{
+    try{
+        let last_block = await Moralis.EvmApi.block.getDateToBlock({
+            date:Date.now(),
+            chain:'0x1'
+        })
+
+        res.redirect(`/hash/${last_block.toJSON().hash}`)
+    }catch(e){console.log(e)}
 })
 
 

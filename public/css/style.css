@@ -3,7 +3,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     font-family: "Krona One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -67,6 +67,7 @@ label{
 
 .btn:hover{
     transform: scale(1.05);
+    border: whitesmoke solid 2px;
 }
 
 .btn{
@@ -79,7 +80,11 @@ label{
     margin-top: 1%;
 }
 
-span{
+.btn:hover{
+    box-shadow: 10px 10px 15px gray;
+}
+
+p{
     color: transparent;
     
 }
@@ -109,4 +114,32 @@ span{
 
 h2{
     font-size: medium;
+}
+
+a{
+    transition: 0.2s;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 7px;
+    border: whitesmoke solid 2px;
+    font-size: larger;
+    margin:auto;
+    background-color: #007bff;
+    padding: 13px;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: 0.2s;
+
+}
+
+a:hover{
+    text-decoration: none;
+    box-shadow: 10px 10px 15px gray;
+    color: whitesmoke;
+}
+
+#last{
+    margin-top: 70px;
+    width: auto;
 }
