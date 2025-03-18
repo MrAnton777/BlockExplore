@@ -33,14 +33,28 @@ app.get('/index',async(req,res)=>{
 
 app.post('/index',async(req,res)=>{
     let hash = req.body.input
+    let adress = req.body.adress
+    if(!adress){
     if(!hash){return res.send('Block not found')}
     try{
         let block = await Moralis.EvmApi.block.getBlock({chain: "0x1",
             blockNumberOrHash: hash,})
 
-        res.redirect(`/hash/${hash}`)
+        return res.redirect(`/hash/${hash}`)
     }catch(e){
         console.log(e)
+    }}
+    if(!hash){
+        try{
+        let token = await Moralis.EvmApi.token.getWalletTokenBalances({
+            chain:'0x1',
+            address:adress
+        })
+        if(!token){
+            return console.log('Token not found')
+        }
+        return res.redirect(`/adress/${adress}`)
+    }catch(e){console.log(e)}
     }
 
 
@@ -56,7 +70,6 @@ app.get('/hash/:hash',async (req,res)=>{
         blockNumberOrHash: String(hash),})
 
     res.render('view',{block:block.toJSON()})
-    //res.send(block.toJSON().transactions[0])
     }catch(e){console.log(e)}
 
 })
@@ -69,6 +82,29 @@ app.get('/last',async (req,res)=>{
         })
 
         res.redirect(`/hash/${last_block.toJSON().hash}`)
+    }catch(e){console.log(e)}
+})
+
+app.get('/adress/:adress',async (req,res)=>{
+    let {adress} = req.params
+
+    if(!adress){
+        return res.send('Adress lost')
+    }
+
+    try{
+        let token = await Moralis.EvmApi.token.getWalletTokenBalances({
+            chain:'0x1',
+            address:adress
+        })
+        if(!token){
+            return console.log('Token not found')
+        }
+        return res.render('adress',{
+            token:token.raw,
+            adress:adress
+        })
+
     }catch(e){console.log(e)}
 })
 

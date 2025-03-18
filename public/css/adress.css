@@ -34,7 +34,10 @@ body {
 }
 h1{
     font-size: xx-large;
+    margin-top: 10%;
 }
+
+
 
 html{
     display: flex;
@@ -84,6 +87,13 @@ span{
     
 }
 
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .cont{
     width: 100%;
     height: auto;
@@ -116,16 +126,16 @@ span{
 
 
 h2{
-    font-size: medium;
+    font-size: x-large;
 }
 
 .el{    
     padding: 15px;
-    width: 100%;
+    width: 40%;
     height: 30vh;
     background-color: rgb(211, 216, 220);
     border: whitesmoke solid 5px;
-    border-radius: 20px;
+    border-radius: 25px;
     display: flex;
     flex-direction:column ;
     justify-content: space-around;
@@ -144,5 +154,5 @@ h3{
 
 .id{
     margin-top: 15%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
 }
