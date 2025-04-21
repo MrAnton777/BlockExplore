@@ -10,31 +10,32 @@
 >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel = 'stylesheet' href = "/css/styles.css">
-
 </head>
 <body>
-    <div class = 'cont'>
-    <h1 class = 'id'>Block №<%= block.number %></h1>
-    <div class = "container">
-        <h2>Block hash: <%= block.hash %></h2>
-        <h2>Block parent hash: <%= block.parent_hash %></h2>
-        <h2>Block timestamp: <%= block.timestamp %></h2>
-        <h2>Block transactions count: <%= block.transaction_count %></h2>
-
-
-    </div>
-
-    <div class="transactions-section">
-    <h1>Transactions</h1>
-    <% block.transactions.map((el,idx)=>{%>
-        <div class = 'el'>
-            <h3> Хеш: <h6><%= el.hash %></h6></h3>
-            <h3> Отправитель: <%= el.from_address %></h3>
-            <h3> Получатель: <%= el.to_address %></h3>
-            <h3> Сумма: <%= (el.value) * (10**-18) %></h3>
+    <div class="cont">
+        <h1 class="id">
+            <i class="fa fa-cube"></i>
+            Block №<%= block.number %>
+        </h1>
+        
+        <div class="container">
+            <h2><i class="fa fa-hashtag"></i> Block hash: <%= block.hash %></h2>
+            <h2><i class="fa fa-link"></i> Block parent hash: <%= block.parent_hash %></h2>
+            <h2><i class="fa fa-clock-o"></i> Block timestamp: <%= block.timestamp %></h2>
+            <h2><i class="fa fa-exchange"></i> Transactions: <%= block.transaction_count %></h2>
         </div>
-    <%})%>
+
+        <div class="transactions-section">
+            <h1><i class="fa fa-list-alt"></i> Transactions</h1>
+            <% block.transactions.map((el,idx)=>{%>
+                <div class="el">
+                    <h3><i class="fa fa-certificate"></i> Hash: <h6><%= el.hash %></h6></h3>
+                    <h3><i class="fa fa-user"></i> From: <%= el.from_address %></h3>
+                    <h3><i class="fa fa-user-plus"></i> To: <%= el.to_address %></h3>
+                    <h3><i class="fa fa-money"></i> Value: <%= (el.value) * (10**-18) %> ETH</h3>
+                </div>
+            <%})%>
+        </div>
     </div>
-
-
-</body></html>
+</body>
+</html>

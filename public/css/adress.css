@@ -1,158 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
-
-html, body {
+/* Базовые стили */
+* {
     margin: 0;
     padding: 0;
-    height: auto;
-    font-family: "Krona One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
-    background: linear-gradient(135deg, #ffffff, #7fc0c8); 
-    background-size: 200% 200%; 
-    animation: gradientAnimation 10s ease infinite; 
-    height: auto;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-}
-
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%; 
-    }
-    50% {
-        background-position: 100% 50%; 
-    }
-    100% {
-        background-position: 0% 50%; 
-    }
-}
-h1{
-    font-size: xx-large;
-    margin-top: 10%;
-}
-
-
-
-html{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-label{
-    text-align: center;
-    align-items: center;
-    font-size: x-large;
-    font-weight: 400;
-}
-
-.form-control{
-    width: 350px;
-    height: 50px;
-    font-size: larger;
-    border-radius: 13px;
-    border: whitesmoke solid 2px;
-    box-shadow: 5px 5px 10px gray;
-}
-
-.btn:hover{
-    transform: scale(1.05);
-}
-
-.btn{
-    transition: 0.2s;
-    height: 50px;
-    width: 150px;
-    border-radius: 7px;
-    border: whitesmoke solid 2px;
-    font-size: larger;
-    margin-top: 1%;
-}
-
-span{
-    color: transparent;
-    
-}
-
-.info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.cont{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+    background-color: #1a1a1a;
+    color: #ffffff;
     min-height: 100vh;
+    padding: 2rem;
+}
+
+.info {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.container{
-    width: 50%;
-    height: 30vh;
-    background-color: rgb(211, 216, 220);
-    border: whitesmoke solid 5px;
-    border-radius: 20px;
+/* Заголовки */
+h1 {
+    color: #00ff88;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #00cc6a;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #3d3d3d;
+    padding-bottom: 1rem;
+}
+
+/* Элементы токенов */
+.el {
+    background: #2d2d2d;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    transition: transform 0.3s ease;
+}
+
+.el:hover {
+    transform: translateY(-3px);
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     display: flex;
-    flex-direction:column ;
-    justify-content: space-around;
-    align-items:center ;
-    box-shadow: 15px 15px 15px gray;
-    margin-bottom: 7%;
-   
-    padding: 20px;
-    
+    align-items: center;
+    gap: 10px;
 }
 
-
-
-
-h2{
-    font-size: x-large;
+h6 {
+    color: #00ff88;
+    font-size: 0.9rem;
+    background: #252525;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-left: 10px;
+    font-family: monospace;
 }
 
-.el{    
-    padding: 15px;
-    width: 40%;
-    height: 30vh;
-    background-color: rgb(211, 216, 220);
-    border: whitesmoke solid 5px;
-    border-radius: 25px;
-    display: flex;
-    flex-direction:column ;
-    justify-content: space-around;
-    align-items:center ;
-    box-shadow: 15px 15px 15px gray;
-    margin: 50px 0 50px 0 ;
-    
-   
-    
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .info {
+        padding: 1rem;
+    }
 
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .el {
+        padding: 1rem;
+    }
 }
 
-h3{
-    font-size:17px;
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    h6 {
+        margin-left: 0;
+        margin-top: 5px;
+    }
 }
 
-.id{
-    margin-top: 15%;
-    margin-bottom: 2%;
+/* Дополнительные улучшения */
+.el h3:last-child {
+    margin-bottom: 0;
+}
+
+.el::before {
+    content: "➤";
+    color: #00ff88;
+    margin-right: 10px;
+}
+
+/* Анимация загрузки (можно добавить через JS) */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
 }

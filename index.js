@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'view'));
 const MORALIS_API_KEY = process.env.API; 
 
 Moralis.start({
-    apiKey: MORALIS_API_KEY,
+    apiKey: MORALIS_API_KEY
   })
 
 
